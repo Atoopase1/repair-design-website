@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Technoid — Professional Web Designer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="Portfolio and services of a professional web designer. High-performance websites, UI/UX, and full-stack builds." />
+</head>
+<body>
+  <header class="site">
+    <nav class="nav">
+      <div class="brand">
+        <img class="logo" src="assets/logo/logo.png" alt="Logo" />
+        <span>Technoid Studio</span>
+      </div>
+      <div style="margin-left:auto; display:flex; gap:14px;">
+        <a href="#work" class="badge">Work</a>
+        <a href="#services" class="badge">Services</a>
+        <a href="#about" class="badge">About</a>
+        <a href="#contact" class="badge">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="card">
+        <h1>Pixel-perfect websites that convert</h1>
+        <p class="muted">I build fast, accessible, and beautiful digital experiences. From landing pages to full-stack apps — crafted for performance and results.</p>
+        <div style="display:flex; gap:12px; flex-wrap: wrap;">
+          <a class="btn" href="#contact">Get a quote</a>
+          <a class="btn" href="#work">See projects</a>
+        </div>
+      </div>
+      <div class="video-wrap card">
+        <!-- Local placeholder poster; replace src with your own mp4 if desired -->
+        <video controls poster="assets/img/gallery_1.png">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <section id="work" class="projects" style="max-width:1200px; margin:40px auto; padding:0 20px;">
+      <h2>Selected Work</h2>
+      <div id="projects" class="grid"></div>
+    </section>
+
+    <section id="services" style="max-width:1200px; margin:40px auto; padding:0 20px;" class="grid cols-3">
+      <div class="card">
+        <h3>Design Systems</h3>
+        <p class="muted">Reusable components, typography, and color scales that keep your brand consistent and dev velocity high.</p>
+      </div>
+      <div class="card">
+        <h3>Performance & SEO</h3>
+        <p class="muted">Lighthouse 90+, Core Web Vitals, schema, and sitemaps — tuned for speed and discoverability.</p>
+      </div>
+      <div class="card">
+        <h3>Full‑Stack Apps</h3>
+        <p class="muted">Node/Express, SQLite, and REST APIs. Authentication-ready and deployable to Render, Railway, or VPS.</p>
+      </div>
+    </section>
+
+    <section id="about" style="max-width:1200px; margin:40px auto; padding:0 20px;" class="grid">
+      <div class="card">
+        <h2>About Me</h2>
+        <p class="muted">I’m a professional web designer and developer. I craft elegant UIs backed by solid engineering. Let’s ship something great.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <img src="assets/img/gallery_2.png" alt="work sample" class="thumb" />
+          <img src="assets/img/gallery_3.png" alt="work sample" class="thumb" />
+          <img src="assets/img/gallery_4.png" alt="work sample" class="thumb" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="max-width:1200px; margin:40px auto; padding:0 20px;">
+      <div class="card">
+        <h2>Contact</h2>
+        <form id="contact-form" class="grid">
+          <div class="row">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
+          </div>
+          <textarea name="message" placeholder="Tell me about your project…" required></textarea>
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <button class="btn" type="submit">Send</button>
+            <span id="contact-status" class="muted"></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <h3>Newsletter</h3>
+        <form id="subscribe-form" class="grid">
+          <div class="row">
+            <input type="email" name="email" placeholder="Email address" required />
+            <button class="btn" type="submit">Subscribe</button>
+          </div>
+          <span id="subscribe-status" class="muted"></span>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <img class="logo" src="assets/logo/logo.png" alt="Logo" />
+        <div>
+          <div>Technoid Studio</div>
+          <div class="muted">© <span id="year"></span> — All rights reserved</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

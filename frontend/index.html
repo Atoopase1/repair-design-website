@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technoid</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>
+    window.API_BASE = localStorage.getItem('API_BASE') || 'http://localhost:4000';
+  </script>
+  <script defer src="assets/js/app.js"></script>
+
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">Technoid</div>
+    <nav>
+      <a href="index.html" data-page="home">Home</a>
+      <a href="design.html" data-page="design">Design</a>
+      <a href="web.html" data-page="web">Web</a>
+      <a href="contact.html" data-page="contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="pill">Technoid — Kumasi, Ghana</span>
+        <h1>FIX IT WITH TECHNOID</h1>
+        <p>We fix all electronical devices, Fast, reliable repair services for smartphones, tablets, laptops, and home electrical appliances.</p>
+        <div class="cta">
+          <a class="btn" href="contact.html">Book a Repair</a>
+          <a class="btn light" href="design.html">Explore Design Services</a>
+        </div>
+      </div>
+      <!-- Right-hand side image -->
+      <div class="hero-repair">
+        <img src="assets/repair.PNG" alt="Technoid Repair Service">
+    </div>
+  </section>
+
+    <section style="margin-top:24px">
+      <h2>Why choose Technoid?</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Expert Diagnostics</h3>
+          <p>Accurate fault detection to save you time and money.</p>
+        </div>
+        <div class="card">
+          <h3>Quality Parts</h3>
+          <p>We use tested components for lasting repairs.</p>
+        </div>
+        <div class="card">
+          <h3>Quick Turnaround</h3>
+          <p>We complete most phone repairs within hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Add this in your <head> if not already there -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<footer class="footer">
+  <p>
+    Email: <a href="mailto:atoopase@gmail.com">atoopase@gmail.com</a> |
+    Tel: <a href="tel:+233544833571">0544833571</a> |
+    Profession: Computer Engineer
+  </p>
+
+  <!-- Social media icons -->
+  <div class="social-links">
+    <a href="https://www.tiktok.com/@technoid_chris_atoopase?_t=ZM-8zGghV6gZ6M&_r=1" target="_blank" aria-label="TikTok">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="https://x.com/technoidchris?s=21" target="_blank" aria-label="Twitter/X">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+    <a href="https://youtube.com/@techniod_chris?si=iLAgkjRhWgdBQK22" target="_blank" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100015011820419&mibextid=wwXIfr&mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+  </div>
+
+  <small>&copy; <span id="year"></span> Technoid. All rights reserved.</small>
+</footer>
+
+<div class="toast" aria-live="polite"></div>
+</body>
+</html>
+
