@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script defer src="assets/js/app.js"></script>
   <script>
-    // 👇 Replace with your Railway backend URL when deployed
+    // 👇 Auto-detect base URL
     window.API_BASE = window.location.hostname.includes("localhost")
       ? "http://localhost:4000"
-      : "https://YOUR-BACKEND.onrailway.app";
+      : "";
     
     async function api(path, options = {}) {
       const res = await fetch(`${window.API_BASE}${path}`, {
