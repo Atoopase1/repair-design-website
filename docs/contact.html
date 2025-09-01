@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technoid</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/app.js"></script>
+  <script>
+    // 👇 Replace with your Railway backend URL when deployed
+    window.API_BASE = window.location.hostname.includes("localhost")
+      ? "http://localhost:4000"
+      : "https://YOUR-BACKEND.onrailway.app";
+    
+    async function api(path, options = {}) {
+      const res = await fetch(`${window.API_BASE}${path}`, {
+        headers: { "Content-Type": "application/json" },
+        ...options,
+      });
+      if (!res.ok) throw new Error(await res.text());
+      return res.json();
+    }
+
+    function toast(msg) {
+      const t = document.querySelector(".toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 3000);
+    }
+  </script>
+</head>
+<body>
+<header class="nav">
+  <div class="brand">Technoid</div>
+  <nav>
+    <a href="index.html" data-page="home">Home</a>
+    <a href="design.html" data-page="design">Design</a>
+    <a href="web.html" data-page="web">Web</a>
+    <a href="contact.html" data-page="contact">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Contact Technoid</h1>
+  <p>Tell us what you need and we will respond quickly.</p>
+
+  <form class="contact" id="contactForm">
+    <div><label for="name">Your Name</label><input id="name" name="name" type="text" required /></div>
+    <div><label for="email">Your Email</label><input id="email" name="email" type="email" required /></div>
+    <div><label for="message">Report your problem & contact number</label><textarea id="message" name="message" rows="5" required></textarea></div>
+    <button class="btn" type="submit">Send Message</button>
+  </form>
+
+  <hr>
+
+  <h2>Admin Messages</h2>
+  <input id="adminKey" type="password" placeholder="Enter admin key" />
+  <button id="loadMessagesBtn">Load Messages</button>
+  <table id="messagesTable" border="1" style="width:100%; margin-top:10px; display:none;">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Email</th><th>Message</th><th>Created At</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</main>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<footer class="footer">
+  <p>Email: <a href="mailto:atoopase@gmail.com">atoopase@gmail.com</a> | Tel: <a href="tel:+233544833571">0544833571</a> | Profession: Computer Engineer</p>
+  <div class="social-links">
+    <a href="https://www.tiktok.com/@technoid_chris_atoopase" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://x.com/technoidchris?s=21" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://youtube.com/@techniod_chris" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100015011820419" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
+  <small>&copy; <span id="year"></span> Technoid. All rights reserved.</small>
+</footer>
+
+<div class="toast" aria-live="polite"></div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  if (!name || !email || !message) return toast('Please fill in all fields.');
+  try {
+    await api('/api/contact', { method: 'POST', body: JSON.stringify({ name, email, message }) });
+    toast('Thanks! Your message has been sent.');
+    e.target.reset();
+  } catch (err) {
+    console.error(err);
+    toast('Failed to send. Is the API running?');
+  }
+});
+
+document.getElementById('loadMessagesBtn').addEventListener('click', async () => {
+  const key = document.getElementById('adminKey').value.trim();
+  if (!key) return toast('Please enter admin key.');
+  try {
+    const messages = await api(`/api/contacts?key=${key}`);
+    const tbody = document.querySelector('#messagesTable tbody');
+    tbody.innerHTML = '';
+    messages.forEach(msg => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${msg.id}</td><td>${msg.name}</td><td>${msg.email}</td><td>${msg.message}</td><td>${msg.created_at}</td>`;
+      tbody.appendChild(row);
+    });
+    document.getElementById('messagesTable').style.display = 'table';
+    toast(`Loaded ${messages.length} messages.`);
+  } catch (err) {
+    console.error(err);
+    toast('Failed to load messages. Check admin key.');
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Technoid</title>
+<link rel="stylesheet" href="assets/css/styles.css" />
+<script defer src="assets/js/app.js"></script>
+</head>
+<body>
+<header class="nav">
+  <div class="brand">Technoid</div>
+  <nav>
+    <a href="index.html" data-page="home">Home</a>
+    <a href="design.html" data-page="design">Design</a>
+    <a href="web.html" data-page="web">Web</a>
+    <a href="contact.html" data-page="contact">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-web">
+      <img src="assets/web.PNG" alt="Web Design">
+    </div>
+    <h1>Webpage & Landing Page Design</h1>
+    <p>High-performance websites optimized for cross-device compatibility and seamless user engagement.</p>
+    <div class="cta">
+      <a class="btn" href="contact.html">Start a Project</a>
+      <button class="btn light" id="estimateBtn">Get Quick Cost Estimate</button>
+    </div>
+  </section>
+
+  <section style="margin-top:24px">
+    <h2>Starter Packages</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>One-Page Site</h3><p>Great for portfolios and basic business info.</p></div>
+      <div class="card"><h3>Business Website</h3><p>3–5 pages, contact form, basic SEO.</p></div>
+      <div class="card"><h3>E‑Commerce</h3><p>Product pages, cart, checkout (3rd‑party integration).</p></div>
+    </div>
+  </section>
+</main>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<footer class="footer">
+  <p>Email: <a href="mailto:atoopase@gmail.com">atoopase@gmail.com</a> | Tel: <a href="tel:+233544833571">0544833571</a> | Profession: Computer Engineer</p>
+  <div class="social-links">
+    <a href="https://www.tiktok.com/@technoid_chris_atoopase" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://x.com/technoidchris?s=21" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://youtube.com/@techniod_chris" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100015011820419" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
+  <small>&copy; <span id="year"></span> Technoid. All rights reserved.</small>
+</footer>
+
+<div class="toast" aria-live="polite"></div>
+
+<script>
+document.getElementById('estimateBtn').addEventListener('click', function() {
+  const pages = prompt('How many pages do you need?');
+  const p = Number(pages || 1);
+  if (!p || p < 1) return toast('Please enter a valid number.');
+  const base = 800, perPage = 200;
+  const estimate = base + (p - 1) * perPage;
+  toast('Estimated cost: GHS ' + estimate);
+});
+</script>
+</body>
+</html>
